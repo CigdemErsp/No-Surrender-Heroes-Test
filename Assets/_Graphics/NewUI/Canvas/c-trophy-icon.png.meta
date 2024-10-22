@@ -1,0 +1,1971 @@
+fileFormatVersion: 2
+guid: 2028fdb24ca48b64c81fc4a9498be118
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 2
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 90
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 65
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 90
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 90
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: c-trophy-icon_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1824
+        width: 117
+        height: 224
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4de035ee86bd7bd4a8db9d6af7a717de
+      internalID: 646728641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1832
+        width: 259
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337856ce7d2972d4096be70d09dd401f
+      internalID: -1325163904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_3
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 1935
+        width: 70
+        height: 93
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d198bc5a809f042b522f99c127ea5a
+      internalID: 1689006013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_4
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 1832
+        width: 173
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6d479ad8429a314eb98fc12869c2372
+      internalID: 1054107194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_5
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 1831
+        width: 218
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56b672681ac320947a8bbbd9006d0049
+      internalID: 2033750011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_8
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 1831
+        width: 150
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f0084ea408bc240b54e277131b013a
+      internalID: -926754812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_9
+      rect:
+        serializedVersion: 2
+        x: 1339
+        y: 1831
+        width: 133
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e279dd05ccd80904ab02fc5f104b1ed9
+      internalID: 1342233161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_11
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 1831
+        width: 61
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42074d7260ed0f44e87e46a55a279430
+      internalID: -287780239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_12
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1835
+        width: 173
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cecf030d6a66b4ebf7524d89b0f814
+      internalID: -968290395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_13
+      rect:
+        serializedVersion: 2
+        x: 1475
+        y: 1833
+        width: 141
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2121d9800267c3b43968de4b79cc389c
+      internalID: -100159862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_14
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1652
+        width: 153
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad9ad0ae1947d04ab1c82a32d066ba8
+      internalID: 1353957382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_15
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1631
+        width: 143
+        height: 194
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ec67a24c948904489144842de984b0
+      internalID: -292361076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_16
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1681
+        width: 209
+        height: 147
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77f007f2a0a22934c89e93106907e5a5
+      internalID: 118559899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_17
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1664
+        width: 174
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 757182272f2e56945806500a83bddcd1
+      internalID: 1389242232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_19
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 1693
+        width: 178
+        height: 132
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a315ca056289fcc479ef4e1674d50799
+      internalID: 1064009200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1691
+        width: 153
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9afdbec5556b454a9fff8ca4a41bb73
+      internalID: 1850204828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_21
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1707
+        width: 153
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617873210f4590549a6c552d5667ec99
+      internalID: 1884003926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_22
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 1625
+        width: 174
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e90da9dfdc189e1498d59372ac509dc4
+      internalID: 1827178052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_24
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 1674
+        width: 220
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7c4e10fe4f782449aea394b2973348
+      internalID: -842801870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_27
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 1491
+        width: 160
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffdee8777001dc24e830aa6a1be5ca4c
+      internalID: -896506157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_28
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 1400
+        width: 251
+        height: 199
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e610826d205ea5449f465e8ed00cc34
+      internalID: -1693014557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_29
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 1472
+        width: 148
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d7f8818f8a4f747910380ed350e018
+      internalID: 982772837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_30
+      rect:
+        serializedVersion: 2
+        x: 1243
+        y: 1456
+        width: 179
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d587bbcc70faa84091a47c99fd261a2
+      internalID: -301381892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_31
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 1447
+        width: 166
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96a7c8f1225f31843ab7764c64065884
+      internalID: 405671886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_32
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 1471
+        width: 179
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a743f25f21a1d8544b31f51f491fd245
+      internalID: -620636272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_35
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 1243
+        width: 174
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae70d81dddc62c418f573f9ff956125
+      internalID: -2055486461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_39
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 1208
+        width: 166
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b069da7f3432d46b57aff92622005d
+      internalID: -2124791880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_40
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 1272
+        width: 199
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4514b75bc100784f8ecc9fe487c99ba
+      internalID: -278145610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_41
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 1173
+        width: 199
+        height: 204
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6eb27bc5211f6479f65565b71dbeae
+      internalID: -295580134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_42
+      rect:
+        serializedVersion: 2
+        x: 1572
+        y: 1229
+        width: 173
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8459dfe24394cc243baf5fcf571412fb
+      internalID: -501383642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_43
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1247
+        width: 173
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bea147f756fd34d8c9ff42c5ca7470
+      internalID: -749308136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_44
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 1155
+        width: 171
+        height: 221
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28936831af9beba4c8fce5ee7277715c
+      internalID: 301736027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_46
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 1208
+        width: 166
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5990617087399224a8950ec64801660f
+      internalID: -1333080105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_47
+      rect:
+        serializedVersion: 2
+        x: 752
+        y: 1162
+        width: 187
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab286091eca8a24b9ba055a8d3708b9
+      internalID: -849913082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_53
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 943
+        width: 227
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 706d3374f110a9b4498fb4d5e24a0083
+      internalID: 1559577806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_56
+      rect:
+        serializedVersion: 2
+        x: 1102
+        y: 992
+        width: 206
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cff0205a1006414781dd78ce956bff3
+      internalID: -2001782170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_57
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 943
+        width: 214
+        height: 209
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d65a01743cbccca4786e302cfd5f899c
+      internalID: 903963742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_58
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 943
+        width: 174
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6868cdcc956c24a9716b3f51aabad3
+      internalID: 1206092853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_59
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 1040
+        width: 210
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adc41763d59d4524b8b4a9055311eb5a
+      internalID: 721326941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_60
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 945
+        width: 221
+        height: 202
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa28aeb8dbc895f49a57674b5a0a8550
+      internalID: -1404920617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1050
+        width: 167
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6676ab2ba0808ee4392927422bde3f38
+      internalID: -1638526551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_64
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 759
+        width: 235
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8388e5eab9d2c54c89d146a0d4c6e1a
+      internalID: 2032505876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_66
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 702
+        width: 257
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bde259c49f996c04d97d61b8d542d6a3
+      internalID: -283853110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_68
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 697
+        width: 264
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe310e9964b653429884ac30fb8ff0c
+      internalID: 1673555349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_69
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 752
+        width: 157
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be53c20cc930abb4d81b566fa7f8e907
+      internalID: 1996816872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_70
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 734
+        width: 241
+        height: 289
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7b1d0b9790f66479b7fedc368fe21f
+      internalID: -1726536320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_71
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 702
+        width: 265
+        height: 217
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1611195ff8cd7140a5474399906dd0c
+      internalID: 1378310002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_72
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 693
+        width: 256
+        height: 223
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68134371e82263b4ab8103503cf9bfae
+      internalID: 1122070385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_73
+      rect:
+        serializedVersion: 2
+        x: 1358
+        y: 842
+        width: 132
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ebd1c14c78b39a4cb0d8506a3017a42
+      internalID: -2004162147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_74
+      rect:
+        serializedVersion: 2
+        x: 1675
+        y: 847
+        width: 129
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181a5e972d5220c48b5ea6ecf70642a3
+      internalID: -691691120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_88
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 500
+        width: 243
+        height: 192
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23d08b984457c8e43941ccba346e83e4
+      internalID: 229985122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_89
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 506
+        width: 198
+        height: 182
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a970ab0dc076774eaff5274f2efec1e
+      internalID: 1648038725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_90
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 624
+        width: 226
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db20e2911310f594e8536f84072948ea
+      internalID: -1267859778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_91
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 544
+        width: 177
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2727b64fefa3964c97b98cc87e5f20d
+      internalID: -1980475939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_92
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 559
+        width: 250
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff52a755c3186bb4f938c830198d7bb9
+      internalID: 2130506749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_94
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 514
+        width: 164
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f38df3792b253c409fe1d689390b96d
+      internalID: -1494341348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_95
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 515
+        width: 154
+        height: 170
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b50dc7f0ade42d40a863c8feeaa497e
+      internalID: 1674793601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_96
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 600
+        width: 223
+        height: 83
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b446a900f7901514e85911129e1f9d45
+      internalID: 1215730191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_97
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 559
+        width: 138
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da8244d2fb5988d4caa023d32a000275
+      internalID: -791034616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_107
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 304
+        width: 224
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4693865d27d12274895bbcad844b7d17
+      internalID: 354377846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_108
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 320
+        width: 233
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182475087647252428fa16f07a2d50d5
+      internalID: 1078818503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_110
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 312
+        width: 213
+        height: 153
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e72e814e08bc534cb098f8b328e084c
+      internalID: 230620341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_111
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 304
+        width: 149
+        height: 161
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8d8421cc64e672408f99579f16065f7
+      internalID: 97732164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_112
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 352
+        width: 144
+        height: 113
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db06ac6f036542a43bc7dfc139c46bea
+      internalID: 1910861949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_113
+      rect:
+        serializedVersion: 2
+        x: 1248
+        y: 335
+        width: 173
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba6c479393a5fd40bf78b61dd478212
+      internalID: 1287066071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_117
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 376
+        width: 138
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715f1ae3dc56f8543aa0cece2532b137
+      internalID: 1511707899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_118
+      rect:
+        serializedVersion: 2
+        x: 1650
+        y: 322
+        width: 184
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3442256d2d8f1643b063c575a828edf
+      internalID: 1820279950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_122
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 306
+        width: 213
+        height: 168
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dffbc007053841e48b9bfd37f99c8e23
+      internalID: 597945078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_130
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 207
+        height: 216
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0027502badb024aae390599e40f3a8
+      internalID: 751172820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_1
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 1478
+        width: 137
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a1ea3daa315a84b9c5c525c04c5c5b
+      internalID: 831924055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_6
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 1479
+        width: 195
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024ff0ad57ae49f49b38fb380e12d0c9
+      internalID: -1062130648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_7
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 1441
+        width: 218
+        height: 176
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ee255ef5c82ae48be669fc3e79623e
+      internalID: -2033925161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_10
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 998
+        width: 194
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee922ab8032933a4f9bf2e4fa9909a41
+      internalID: -1272464985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_18
+      rect:
+        serializedVersion: 2
+        x: 1706
+        y: 1064
+        width: 211
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f4c67d4c2f25248a3f421c696f5455
+      internalID: -936962408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_23
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 77
+        width: 267
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eeb851b89d7d55b469ee65520bed5aaa
+      internalID: -1374027375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_25
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 51
+        width: 216
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46159a3a84fb6134fa8da2b482a0bd79
+      internalID: 1346296212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_26
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 49
+        width: 223
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b639a6d9f73c13f419f17263b8f1c82c
+      internalID: -1004130782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_33
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 61
+        width: 204
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea0a9593dfe91f4b9f9021f1e029ffc
+      internalID: 1910760696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: c-trophy-icon_34
+      rect:
+        serializedVersion: 2
+        x: 1872
+        y: 49
+        width: 106
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ce668eafecd67144ae3854f24e835eb
+      internalID: -1998528051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      c-trophy-icon_0: 646728641
+      c-trophy-icon_1: 831924055
+      c-trophy-icon_10: -1272464985
+      c-trophy-icon_100: -1548953809
+      c-trophy-icon_101: 876996037
+      c-trophy-icon_102: 1771647613
+      c-trophy-icon_103: -1296943432
+      c-trophy-icon_104: -364724515
+      c-trophy-icon_105: 1068061801
+      c-trophy-icon_106: -1120811396
+      c-trophy-icon_107: 354377846
+      c-trophy-icon_108: 1078818503
+      c-trophy-icon_109: -345774640
+      c-trophy-icon_11: -287780239
+      c-trophy-icon_110: 230620341
+      c-trophy-icon_111: 97732164
+      c-trophy-icon_112: 1910861949
+      c-trophy-icon_113: 1287066071
+      c-trophy-icon_114: 410111456
+      c-trophy-icon_115: -1453824488
+      c-trophy-icon_116: -504799243
+      c-trophy-icon_117: 1511707899
+      c-trophy-icon_118: 1820279950
+      c-trophy-icon_119: 242919539
+      c-trophy-icon_12: -968290395
+      c-trophy-icon_120: -590284416
+      c-trophy-icon_121: 123576674
+      c-trophy-icon_122: 597945078
+      c-trophy-icon_123: 172308153
+      c-trophy-icon_124: 1929419805
+      c-trophy-icon_125: -2141358391
+      c-trophy-icon_126: -447299346
+      c-trophy-icon_127: 232571668
+      c-trophy-icon_128: 1635538693
+      c-trophy-icon_129: -1834858781
+      c-trophy-icon_13: -100159862
+      c-trophy-icon_130: 751172820
+      c-trophy-icon_131: -1803667153
+      c-trophy-icon_132: -1324566272
+      c-trophy-icon_14: 1353957382
+      c-trophy-icon_15: -292361076
+      c-trophy-icon_16: 118559899
+      c-trophy-icon_17: 1389242232
+      c-trophy-icon_18: -936962408
+      c-trophy-icon_19: 1064009200
+      c-trophy-icon_2: -1325163904
+      c-trophy-icon_20: 1850204828
+      c-trophy-icon_21: 1884003926
+      c-trophy-icon_22: 1827178052
+      c-trophy-icon_23: -1374027375
+      c-trophy-icon_24: -842801870
+      c-trophy-icon_25: 1346296212
+      c-trophy-icon_26: -1004130782
+      c-trophy-icon_27: -896506157
+      c-trophy-icon_28: -1693014557
+      c-trophy-icon_29: 982772837
+      c-trophy-icon_3: 1689006013
+      c-trophy-icon_30: -301381892
+      c-trophy-icon_31: 405671886
+      c-trophy-icon_32: -620636272
+      c-trophy-icon_33: 1910760696
+      c-trophy-icon_34: -1998528051
+      c-trophy-icon_35: -2055486461
+      c-trophy-icon_36: 682997327
+      c-trophy-icon_37: 990141890
+      c-trophy-icon_38: -1884734653
+      c-trophy-icon_39: -2124791880
+      c-trophy-icon_4: 1054107194
+      c-trophy-icon_40: -278145610
+      c-trophy-icon_41: -295580134
+      c-trophy-icon_42: -501383642
+      c-trophy-icon_43: -749308136
+      c-trophy-icon_44: 301736027
+      c-trophy-icon_45: 50456746
+      c-trophy-icon_46: -1333080105
+      c-trophy-icon_47: -849913082
+      c-trophy-icon_48: -508915615
+      c-trophy-icon_49: -724005079
+      c-trophy-icon_5: 2033750011
+      c-trophy-icon_50: -502356518
+      c-trophy-icon_51: -1018666294
+      c-trophy-icon_52: 464859725
+      c-trophy-icon_53: 1559577806
+      c-trophy-icon_54: 1315758769
+      c-trophy-icon_55: 1522069001
+      c-trophy-icon_56: -2001782170
+      c-trophy-icon_57: 903963742
+      c-trophy-icon_58: 1206092853
+      c-trophy-icon_59: 721326941
+      c-trophy-icon_6: -1062130648
+      c-trophy-icon_60: -1404920617
+      c-trophy-icon_61: 1613364981
+      c-trophy-icon_62: -1638526551
+      c-trophy-icon_63: -705408521
+      c-trophy-icon_64: 2032505876
+      c-trophy-icon_65: 904607072
+      c-trophy-icon_66: -283853110
+      c-trophy-icon_67: -1250429532
+      c-trophy-icon_68: 1673555349
+      c-trophy-icon_69: 1996816872
+      c-trophy-icon_7: -2033925161
+      c-trophy-icon_70: -1726536320
+      c-trophy-icon_71: 1378310002
+      c-trophy-icon_72: 1122070385
+      c-trophy-icon_73: -2004162147
+      c-trophy-icon_74: -691691120
+      c-trophy-icon_75: 44603488
+      c-trophy-icon_76: 602713625
+      c-trophy-icon_77: 785903478
+      c-trophy-icon_78: -1842435485
+      c-trophy-icon_79: 1497016297
+      c-trophy-icon_8: -926754812
+      c-trophy-icon_80: -1694907793
+      c-trophy-icon_81: -401603365
+      c-trophy-icon_82: -935998898
+      c-trophy-icon_83: 1244470035
+      c-trophy-icon_84: 1477744635
+      c-trophy-icon_85: -962550855
+      c-trophy-icon_86: 1789989226
+      c-trophy-icon_87: -1518610283
+      c-trophy-icon_88: 229985122
+      c-trophy-icon_89: 1648038725
+      c-trophy-icon_9: 1342233161
+      c-trophy-icon_90: -1267859778
+      c-trophy-icon_91: -1980475939
+      c-trophy-icon_92: 2130506749
+      c-trophy-icon_93: 181015831
+      c-trophy-icon_94: -1494341348
+      c-trophy-icon_95: 1674793601
+      c-trophy-icon_96: 1215730191
+      c-trophy-icon_97: -791034616
+      c-trophy-icon_98: 940924256
+      c-trophy-icon_99: 785185401
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
