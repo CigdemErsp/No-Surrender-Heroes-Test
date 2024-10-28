@@ -958,6 +958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531675712}
   - component: {fileID: 1531675711}
+  - component: {fileID: 1531675713}
   m_Layer: 0
   m_Name: Game
   m_TagString: Untagged
@@ -993,6 +994,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1531675713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531675710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88af23b0e566b7343ba8e0306a5d89dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  maxMana: 10
+  currentMana: 0
+  manaRegenAmount: 1
+  manaRegenRate: 2
+  _spawnEnemy: {fileID: 0}
 --- !u!1 &1700850745
 GameObject:
   m_ObjectHideFlags: 0

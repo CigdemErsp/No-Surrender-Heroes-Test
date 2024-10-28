@@ -29,6 +29,8 @@ public class Avatar : MonoBehaviour
 
     [SerializeField] private int point;
 
+    public int manaCost = 2;
+
     private void Start()
     {
         currentHealth = maxHealth;

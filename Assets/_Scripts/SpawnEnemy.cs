@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
+    private int maxMana = 10;
+    private int _currentMana;
+    private int manaRegenAmount = 1;  // Amount of mana regenerated
+    private float manaRegenRate = 4f;
+
     private Vector2 originalPosition;
 
     [SerializeField] private Canvas _canvas;
@@ -11,13 +16,26 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private RectTransform canvasRectTransform; // The canvas where you want to spawn enemies
 
     private float spawnTime = 2f;
-    private int spawnMaxCount = 5;
-    public int spawnCount;
 
     void Start()
     {
-        spawnCount = 2;
+        _currentMana = maxMana;
         StartCoroutine(SpawnEnemyRandomly());
+        StartCoroutine(RegenerateMana());
+    }
+
+    // Regenerate mana over time
+    IEnumerator RegenerateMana()
+    {
+        while (true)
+        {
+            if (_currentMana < maxMana)
+            {
+                _currentMana += manaRegenAmount;
+                // Debug.Log($"Regenerate {_currentMana}");
+            }
+            yield return new WaitForSeconds(manaRegenRate);
+        }
     }
 
     IEnumerator SpawnEnemyRandomly()
@@ -25,11 +43,19 @@ public class SpawnEnemy : MonoBehaviour
         while (true) // Check spawn count in the loop condition
         {
             yield return new WaitForSeconds(spawnTime);
+            float randomEnemyIndex = Random.Range(0, _gameObject.Count);
+            GameObject _enemy = _gameObject[(int)randomEnemyIndex];
 
-            if (spawnCount < spawnMaxCount) // Check if we can spawn more
+            string tmp = "Try to spwn " + _currentMana;
+            // Debug.Log(tmp);
+
+            if (_currentMana < _enemy.GetComponent<Avatar>().manaCost)
+                yield return null;
+            else
             {
-                float randomEnemyIndex = Random.Range(0, _gameObject.Count);
-                GameObject _enemy = _gameObject[(int)randomEnemyIndex];
+                _currentMana -= _enemy.GetComponent<Avatar>().manaCost;
+                tmp = "Spawn " + _currentMana;
+                // Debug.Log(tmp);
 
                 Vector2 canvasSize = canvasRectTransform.sizeDelta;
 
@@ -50,33 +76,9 @@ public class SpawnEnemy : MonoBehaviour
                     // If the ray hits a 3D object, instantiate the game object at the hit point
                     Vector3 spawnPosition3D = hit.point;
                     Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
-                    spawnCount++;
-                    Debug.Log("Soldier Spawned! Current Count: " + spawnCount);
                 }
             }
-            else
-            {
-                // If we hit the max count, wait before checking again
-                yield return null; // Wait for the next frame
-            }
         }
     }
 
-    void OnEnable()
-    {
-        Avatar.OnSoldierDied += DecreaseSpawnCount; // Subscribe to the event
-    }
-
-    void OnDisable()
-    {
-        Avatar.OnSoldierDied -= DecreaseSpawnCount; // Unsubscribe to avoid memory leaks
-    }
-
-    public void DecreaseSpawnCount()
-    {
-        if (spawnCount > 0)
-        {
-            spawnCount--;
-        }
-    }
 }
