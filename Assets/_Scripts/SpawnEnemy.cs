@@ -46,7 +46,7 @@ public class SpawnEnemy : MonoBehaviour
             float randomEnemyIndex = Random.Range(0, _gameObject.Count);
             GameObject _enemy = _gameObject[(int)randomEnemyIndex];
 
-            string tmp = "Try to spwn " + _currentMana;
+            string tmp = "Try to spawn " + _currentMana;
             // Debug.Log(tmp);
 
             if (_currentMana < _enemy.GetComponent<Avatar>().manaCost)
@@ -60,7 +60,7 @@ public class SpawnEnemy : MonoBehaviour
                 Vector2 canvasSize = canvasRectTransform.sizeDelta;
 
                 float randomX = Random.Range(0, canvasSize.x);
-                float randomY = Random.Range(0, canvasSize.y);
+                float randomY = Random.Range((canvasSize.y / 2) + 100, canvasSize.y);
 
                 // Convert the canvas position into world space
                 Vector2 spawnPosition = new Vector2(randomX, randomY);
@@ -75,7 +75,8 @@ public class SpawnEnemy : MonoBehaviour
                 {
                     // If the ray hits a 3D object, instantiate the game object at the hit point
                     Vector3 spawnPosition3D = hit.point;
-                    Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
+                    GameObject _newEnemy = Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
+                    _newEnemy.transform.Rotate(0, 180, 0);
                 }
             }
         }

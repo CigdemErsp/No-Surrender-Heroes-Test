@@ -10,10 +10,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     private Vector2 originalPosition;
 
-    [SerializeField] private Canvas _canvas;
+    [SerializeField] private RectTransform canvasRectTransform;
     [SerializeField] private GameObject _gameObject;
 
     private bool canSummon = true;
+
+    private Vector2 canvasSize;
+
+    void Start()
+    {
+        canvasSize = canvasRectTransform.sizeDelta;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -35,8 +42,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             // Debug.Log("OnEndDrag");
             transform.position = originalPosition;
-
+            
             Vector2 canvasPos = eventData.position;
+            Debug.Log(canvasPos.y);
+
+            if (canvasPos.y > ((canvasSize.y / 2) + 100))
+                canvasPos.y = (canvasSize.y / 2) + 100;
+            Debug.Log(canvasPos.y);
 
             Ray ray = Camera.main.ScreenPointToRay(canvasPos);
             RaycastHit hit;

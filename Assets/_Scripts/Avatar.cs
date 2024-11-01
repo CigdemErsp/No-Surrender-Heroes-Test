@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UI;
 
 public class Avatar : MonoBehaviour
 {
@@ -12,6 +11,9 @@ public class Avatar : MonoBehaviour
     public delegate void Score(int points);
     public static event Score ScoreUp;
 
+    public delegate void HealthBarHandler();
+    public static event HealthBarHandler OnDamageTaken;
+
     [SerializeField] private float speed = 2f; // Speed of the soldier
     private string teamTag; // Team tag
     [SerializeField] private float range; // Range of weapon
@@ -19,8 +21,8 @@ public class Avatar : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    [SerializeField] private int maxHealth = 100; // Max health of the soldier
-    private int currentHealth;
+    private int maxHealth = 100; // Max health of the soldier
+    private int currentHealth = 100;
 
     private Avatar _currentTarget;
 
@@ -30,6 +32,16 @@ public class Avatar : MonoBehaviour
     [SerializeField] private int point;
 
     public int manaCost = 2;
+
+    public int getCurrentHealth()
+    {
+        return currentHealth;
+    }
+
+    public int getMaxHealth()
+    {
+        return maxHealth;
+    }
 
     private void Start()
     {
@@ -127,6 +139,7 @@ public class Avatar : MonoBehaviour
     {
         if (!_currentTarget.isDead) {
             _currentTarget.currentHealth -= damage;
+            OnDamageTaken?.Invoke();
             string tmp = _currentTarget.name + " " + _currentTarget.teamTag + " " + _currentTarget.currentHealth;
             // Debug.Log(tmp);
 
