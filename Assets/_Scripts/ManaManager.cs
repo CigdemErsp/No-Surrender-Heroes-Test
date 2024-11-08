@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Avatar;
 
 public class ManaManager : MonoBehaviour
 {
@@ -10,24 +9,25 @@ public class ManaManager : MonoBehaviour
     private int manaRegenAmount = 1;  // Amount of mana regenerated
     private float manaRegenRate = 4f;
 
-    void Start()
+    public delegate void ManaBarHandler(int currentMana, int maxMana); 
+    public static event ManaBarHandler OnManaChange;
+
+    public int getCurrentMana() {  return _currentMana; }
+
+    void Awake()
     {
         _currentMana = maxMana;
-        StartCoroutine(RegenerateMana());
-        Debug.Log(_currentMana);
+        // Debug.Log(_currentMana);
     }
 
     // Regenerate mana over time
-    IEnumerator RegenerateMana()
+    public void RegenerateMana()
     {
-        while (true)
+        // Regenerate only if mana is below the maximum
+        if (_currentMana < maxMana)
         {
-            if (_currentMana < maxMana)
-            {
-                _currentMana += manaRegenAmount;
-                Debug.Log($"Regenerate {_currentMana}");
-            }
-            yield return new WaitForSeconds(manaRegenRate);
+            _currentMana += manaRegenAmount;
+            Debug.Log($"Mana after regen: {_currentMana}");
         }
     }
 
@@ -37,6 +37,7 @@ public class ManaManager : MonoBehaviour
         {
             _currentMana -= mana;
             Debug.Log($"Mana after summoning: {_currentMana}");
+            OnManaChange?.Invoke(_currentMana, maxMana);
             return true;
         }
 

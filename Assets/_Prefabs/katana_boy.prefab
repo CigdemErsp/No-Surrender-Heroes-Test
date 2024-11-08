@@ -179,6 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 5360722288485263986}
   avatar: {fileID: 6158365189841072611}
+  camera: {fileID: 0}
 --- !u!1 &6237819389934437850
 GameObject:
   m_ObjectHideFlags: 0
@@ -2238,9 +2239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   range: 1
-  damage: 20
+  damage: 0
   _animator: {fileID: 3972916729648029077}
-  maxHealth: 200
   point: 20
   manaCost: 2
 --- !u!95 &3972916729648029077

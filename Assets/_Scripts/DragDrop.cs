@@ -44,11 +44,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             transform.position = originalPosition;
             
             Vector2 canvasPos = eventData.position;
-            Debug.Log(canvasPos.y);
 
             if (canvasPos.y > ((canvasSize.y / 2) + 100))
                 canvasPos.y = (canvasSize.y / 2) + 100;
-            Debug.Log(canvasPos.y);
 
             Ray ray = Camera.main.ScreenPointToRay(canvasPos);
             RaycastHit hit;
@@ -78,7 +76,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canSummon = OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost) ?? true;
         if(!canSummon)
         {
-            Debug.Log("Not enough mana");
+            // Debug.Log("Not enough mana");
             return;
         }
     }

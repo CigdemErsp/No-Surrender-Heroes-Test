@@ -1,11 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HealthBar : MonoBehaviour
 {
 
     public Slider slider;
     [SerializeField] private Avatar avatar;
+    private Camera _camera;
+
+    private void Start()
+    {
+        _camera = Camera.main;
+    }
 
     // Start is called before the first frame update
     public void InitializeSlider()
@@ -26,7 +33,11 @@ public class HealthBar : MonoBehaviour
 
     public void UpdateHealthBar()
     {
-        slider.value = avatar.getCurrentHealth();
+        slider.DOValue(avatar.getCurrentHealth(), 0.5f);
     }
 
+    void Update()
+    {
+        slider.transform.LookAt(transform.position + _camera.transform.forward);
+    }
 }
