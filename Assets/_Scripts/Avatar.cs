@@ -145,17 +145,18 @@ public class Avatar : MonoBehaviour
 
             if (_currentTarget.currentHealth <= 0)
             {
+                _currentTarget._animator.SetTrigger("Death");
+                _animator.SetBool("Attacking", false);
+                _animator.SetBool("Idle", true);
+                isAttacking = false;
+                _currentTarget.isDead = true;
+
                 if (_currentTarget.tag == "Team 1")
                 {
                     OnSoldierDied?.Invoke();
                     ScoreUp?.Invoke(_currentTarget.point);
                 }
 
-                _currentTarget._animator.SetTrigger("Death");
-                _animator.SetBool("Attacking", false);
-                _animator.SetBool("Idle", true);
-                isAttacking = false;
-                _currentTarget.isDead = true;
             }
         }
     }

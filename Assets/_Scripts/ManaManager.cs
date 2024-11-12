@@ -33,25 +33,25 @@ public class ManaManager : MonoBehaviour
 
     public bool TrySummon(int mana)
     {
-        if (_currentMana >= mana)
-        {
-            _currentMana -= mana;
-            Debug.Log($"Mana after summoning: {_currentMana}");
-            OnManaChange?.Invoke(_currentMana, maxMana);
-            return true;
-        }
+        return _currentMana >= mana;
+    }
 
-        return false;
+    public void SpendMana(int mana)
+    {
+        _currentMana -= mana;
+        Debug.Log($"Mana after summoning: {_currentMana}");
+        OnManaChange?.Invoke(_currentMana, maxMana);
     }
 
     void OnEnable()
     {
-        DragDrop.OnSummon += TrySummon; // Subscribe to the event
+        DragDrop.OnTrySummon += TrySummon; // Subscribe to the event
+        DragDrop.OnSummon += SpendMana;
     }
 
     void OnDisable()
     {
-        DragDrop.OnSummon -= TrySummon; // Unsubscribe to avoid memory leaks
+        DragDrop.OnTrySummon -= TrySummon; // Unsubscribe to avoid memory leaks
+        DragDrop.OnSummon -= SpendMana;
     }
-
 }

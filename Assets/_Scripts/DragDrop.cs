@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
-    public delegate bool SummonHandler(int mana);
+    public delegate bool TrySummonHandler(int mana);
+    public static event TrySummonHandler OnTrySummon;
+
+    public delegate void SummonHandler(int mana);
     public static event SummonHandler OnSummon;
 
     private Vector2 originalPosition;
@@ -17,9 +21,12 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     private Vector2 canvasSize;
 
+    private Game _game;
+
     void Start()
     {
         canvasSize = canvasRectTransform.sizeDelta;
+        _game = FindObjectOfType<Game>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -67,13 +74,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                     newCharacter.tag = "Team 2";
                 }
             }
+            OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);
         }
 
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        canSummon = OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost) ?? true;
+        canSummon = OnTrySummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost) ?? true;
         if(!canSummon)
         {
             // Debug.Log("Not enough mana");
@@ -84,5 +92,21 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnDrop(PointerEventData eventData)
     {
         // Debug.Log("OnDrop");
+    }
+
+    void OnEnable()
+    {
+        Game.OnHeroUpgradable += UpgradeHero; // Subscribe to the event
+    }
+
+    void OnDisable()
+    {
+        Game.OnHeroUpgradable -= UpgradeHero; // Unsubscribe to avoid memory leaks
+    }
+
+    public bool UpgradeHero()
+    {
+        transform.GetComponentInChildren<Image>().gameObject.SetActive(true);
+        return false;
     }
 }

@@ -6,8 +6,13 @@ using TMPro;
 
 public class Game : MonoBehaviour
 {
+    public delegate bool HeroUpgradable();
+    public static event HeroUpgradable OnHeroUpgradable;
+
     private int score = 0;
     [SerializeField] private TMP_Text scoreText;
+
+    private bool heroUpgradable = false;
 
     void OnEnable()
     {
@@ -25,6 +30,9 @@ public class Game : MonoBehaviour
 
         string tmp = $"Score: {score}";
         UpdateScoreText(tmp); // Update the health text with the current info
+
+        if(score >= 50)
+            OnHeroUpgradable?.Invoke();
     }
 
     void UpdateScoreText(string text = "")
@@ -34,4 +42,5 @@ public class Game : MonoBehaviour
             scoreText.text = string.IsNullOrEmpty(text) ? $"Score: {score}" : text;
         }
     }
+    
 }
