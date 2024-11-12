@@ -17,7 +17,7 @@ public class Avatar : MonoBehaviour
     [SerializeField] private float speed = 2f; // Speed of the soldier
     private string teamTag; // Team tag
     [SerializeField] private float range; // Range of weapon
-    [SerializeField] private int damage = 10;
+    public int damage = 10;
 
     [SerializeField] private Animator _animator;
 
@@ -41,6 +41,11 @@ public class Avatar : MonoBehaviour
     public int getMaxHealth()
     {
         return maxHealth;
+    }
+
+    public void setMaxHealth(int health)
+    {
+        maxHealth = health;
     }
 
     private void Start()

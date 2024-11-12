@@ -24,7 +24,7 @@ public class ManaSlider : MonoBehaviour
 
         sprites = Resources.LoadAll<Sprite>("numbers");
         _levelZero = Resources.Load<Sprite>("0");
-        Debug.Log($"sprite {sprites[1].name}");
+        // Debug.Log($"sprite {sprites[1].name}");
     }
 
     private void OnEnable()

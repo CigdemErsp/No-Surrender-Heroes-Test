@@ -6,7 +6,7 @@ using TMPro;
 
 public class Game : MonoBehaviour
 {
-    public delegate bool HeroUpgradable();
+    public delegate void HeroUpgradable(int score);
     public static event HeroUpgradable OnHeroUpgradable;
 
     private int score = 0;
@@ -17,11 +17,13 @@ public class Game : MonoBehaviour
     void OnEnable()
     {
         Avatar.ScoreUp += UpScore; // Subscribe to the event
+        DragDrop.OnHeroUpgraded += DecreaseScore;
     }
 
     void OnDisable()
     {
         Avatar.ScoreUp -= UpScore; // Unsubscribe to avoid memory leaks
+        DragDrop.OnHeroUpgraded -= DecreaseScore;
     }
 
     public void UpScore(int point)
@@ -29,10 +31,8 @@ public class Game : MonoBehaviour
         score += point;
 
         string tmp = $"Score: {score}";
-        UpdateScoreText(tmp); // Update the health text with the current info
-
-        if(score >= 50)
-            OnHeroUpgradable?.Invoke();
+        UpdateScoreText(tmp); // Update the score text with the current info
+        OnHeroUpgradable?.Invoke(score);
     }
 
     void UpdateScoreText(string text = "")
@@ -41,6 +41,14 @@ public class Game : MonoBehaviour
         {
             scoreText.text = string.IsNullOrEmpty(text) ? $"Score: {score}" : text;
         }
+    }
+
+    void DecreaseScore(int point)
+    {
+        score -= point;
+        string tmp = $"Score: {score}";
+        UpdateScoreText(tmp); // Update the score text with the current info
+        OnHeroUpgradable?.Invoke(score);
     }
     
 }

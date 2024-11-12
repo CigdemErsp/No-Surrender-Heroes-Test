@@ -12,10 +12,18 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public delegate void SummonHandler(int mana);
     public static event SummonHandler OnSummon;
 
+    public delegate void HeroUpgraded(int score);
+    public static event HeroUpgraded OnHeroUpgraded;
+
+    private int level;
+    private int neededScoreForLevelUp;
+
     private Vector2 originalPosition;
 
     [SerializeField] private RectTransform canvasRectTransform;
     [SerializeField] private GameObject _gameObject;
+    [SerializeField] private Image _levelUp;
+    [SerializeField] private Button _levelUpButton;
 
     private bool canSummon = true;
 
@@ -25,8 +33,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     void Start()
     {
+        level = 0;
+        neededScoreForLevelUp = 20;
         canvasSize = canvasRectTransform.sizeDelta;
         _game = FindObjectOfType<Game>();
+        _levelUpButton.onClick.AddListener(TaskOnClick);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -49,7 +60,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         {
             // Debug.Log("OnEndDrag");
             transform.position = originalPosition;
-            
+
             Vector2 canvasPos = eventData.position;
 
             if (canvasPos.y > ((canvasSize.y / 2) + 100))
@@ -72,6 +83,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                     GameObject newCharacter = Instantiate(_gameObject, dropPositionWorld, Quaternion.identity);
                     newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     newCharacter.tag = "Team 2";
+                    newCharacter.GetComponent<Avatar>().damage += level * 5;
+                    newCharacter.GetComponent<Avatar>().setMaxHealth(newCharacter.GetComponent<Avatar>().getMaxHealth() + (level * 10));
                 }
             }
             OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);
@@ -82,7 +95,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         canSummon = OnTrySummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost) ?? true;
-        if(!canSummon)
+        if (!canSummon)
         {
             // Debug.Log("Not enough mana");
             return;
@@ -104,9 +117,19 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         Game.OnHeroUpgradable -= UpgradeHero; // Unsubscribe to avoid memory leaks
     }
 
-    public bool UpgradeHero()
+    public void UpgradeHero(int score)
     {
-        transform.GetComponentInChildren<Image>().gameObject.SetActive(true);
-        return false;
+        if(score >= neededScoreForLevelUp)
+            _levelUp.gameObject.SetActive(true);
+        else
+            _levelUp.gameObject.SetActive(false);
+    }
+
+    void TaskOnClick()
+    {
+        OnHeroUpgraded?.Invoke(neededScoreForLevelUp);
+        level++;
+        neededScoreForLevelUp = (level + 1) * 20;
+        _levelUp.gameObject.SetActive(false);
     }
 }

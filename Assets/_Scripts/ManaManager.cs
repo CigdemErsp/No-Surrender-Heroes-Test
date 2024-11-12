@@ -27,7 +27,7 @@ public class ManaManager : MonoBehaviour
         if (_currentMana < maxMana)
         {
             _currentMana += manaRegenAmount;
-            Debug.Log($"Mana after regen: {_currentMana}");
+            // Debug.Log($"Mana after regen: {_currentMana}");
         }
     }
 
@@ -39,7 +39,7 @@ public class ManaManager : MonoBehaviour
     public void SpendMana(int mana)
     {
         _currentMana -= mana;
-        Debug.Log($"Mana after summoning: {_currentMana}");
+        // Debug.Log($"Mana after summoning: {_currentMana}");
         OnManaChange?.Invoke(_currentMana, maxMana);
     }
 
