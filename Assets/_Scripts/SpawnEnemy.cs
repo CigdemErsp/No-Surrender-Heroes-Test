@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Game;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -80,6 +81,21 @@ public class SpawnEnemy : MonoBehaviour
                 }
             }
         }
+    }
+
+    void OnEnable()
+    {
+        Game.OnGameEnd += GameEnd; // Subscribe to the event
+    }
+
+    void OnDisable()
+    {
+        Game.OnGameEnd -= GameEnd; // Unsubscribe to avoid memory leaks
+    }
+
+    public void GameEnd()
+    {
+        StopAllCoroutines();
     }
 
 }

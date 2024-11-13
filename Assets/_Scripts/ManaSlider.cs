@@ -16,6 +16,8 @@ public class ManaSlider : MonoBehaviour
     private Sprite[] sprites;
     private Sprite _levelZero;
 
+    private bool gameEnded = false;
+
     private void Start()
     {
         manaManager = FindObjectOfType<ManaManager>(); // Get reference to ManaManager
@@ -30,11 +32,18 @@ public class ManaSlider : MonoBehaviour
     private void OnEnable()
     {
         ManaManager.OnManaChange += UpdateManaSlider;
+        Game.OnGameEnd += GameEnd;
     }
 
     private void OnDisable()
     {
         ManaManager.OnManaChange -= UpdateManaSlider;
+        Game.OnGameEnd -= GameEnd;
+    }
+
+    public void GameEnd()
+    {
+        gameEnded = true;
     }
 
     private void InitializeSlider()
@@ -46,7 +55,7 @@ public class ManaSlider : MonoBehaviour
 
     private void StartSliderFillAnimation(float currentMana)
     {
-        if (slider.value < slider.maxValue) // Only start animation if not at max
+        if (slider.value < slider.maxValue && !gameEnded) // Only start animation if not at max
         {
             // Kill any existing tween to ensure only one is active
             if (sliderTween != null && sliderTween.IsActive())
@@ -63,9 +72,9 @@ public class ManaSlider : MonoBehaviour
                 manaManager.RegenerateMana();
                 ChangeManaLevel((int)slider.value);
             });
-            
         }
-        
+        if(gameEnded)
+            sliderTween.Kill();
     }
 
     private void UpdateManaSlider(int currentMana, int maxMana)
