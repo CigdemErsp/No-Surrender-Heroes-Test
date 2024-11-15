@@ -41,7 +41,7 @@ public class Game : MonoBehaviour
         UpdateScoreText(tmp); // Update the score text with the current info
         OnHeroUpgradable?.Invoke(score);
 
-        if(score >= 100) // victory
+        if(score >= 20) // victory
         {
             OnGameEnd?.Invoke();
             Victory();
