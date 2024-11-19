@@ -17,9 +17,14 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         _loading = _loadingScreen.GetComponentInChildren<Image>();
-        _replayButton.onClick.AddListener(Replay);
-        _nextButton.onClick.AddListener(NextLevel);
-        _quitButton.onClick.AddListener(Quit);
+        if(_replayButton != null)
+            _replayButton.onClick.AddListener(Replay);
+
+        if (_nextButton != null)
+            _nextButton.onClick.AddListener(NextLevel);
+
+        if (_quitButton != null)
+            _quitButton.onClick.AddListener(Quit);
     }
 
     void Replay()
@@ -32,19 +37,22 @@ public class LevelManager : MonoBehaviour
             .OnComplete(() =>
             {
                 // Load the scene after fade-out completes
-                SceneManager.LoadScene(1);
-
-                // Fade back in after the new scene is loaded
-                _loading.DOFade(0, 0)
-                    .SetEase(Ease.InOutQuad)
-                    .OnComplete(() =>
-                    {
-                        _loadingScreen.gameObject.SetActive(false); // Hide the panel after fade-in
-                    });
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             });
     }
 
-    void NextLevel() { }
+    void NextLevel() {
+        _loadingScreen.gameObject.SetActive(true); // Ensure the panel is active
+        _loading.color = new Color(0, 0, 0, 0); // Set initial transparent state
+
+        _loading.DOFade(1, 1f) // Fade to black
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                // Load the scene after fade-out completes
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            });
+    }
 
     void Quit() 
     {
@@ -58,14 +66,6 @@ public class LevelManager : MonoBehaviour
             {
                 // Load the scene after fade-out completes
                 SceneManager.LoadScene(0);
-
-                // Fade back in after the new scene is loaded
-                _loading.DOFade(0, 0)
-                    .SetEase(Ease.InOutQuad)
-                    .OnComplete(() =>
-                    {
-                        _loadingScreen.gameObject.SetActive(false); // Hide the panel after fade-in
-                    });
             });
     }
 }

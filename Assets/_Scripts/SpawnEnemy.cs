@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static Game;
+using UnityEngine.SceneManagement;
 
 public class SpawnEnemy : MonoBehaviour
 {
+    private int _level = 1;
     private int maxMana = 10;
     private int _currentMana;
     private int manaRegenAmount = 1;  // Amount of mana regenerated
@@ -20,6 +21,7 @@ public class SpawnEnemy : MonoBehaviour
 
     void Start()
     {
+        _level = SceneManager.GetActiveScene().buildIndex; 
         _currentMana = maxMana;
         StartCoroutine(SpawnEnemyRandomly());
         StartCoroutine(RegenerateMana());
@@ -55,7 +57,7 @@ public class SpawnEnemy : MonoBehaviour
             else
             {
                 _currentMana -= _enemy.GetComponent<Avatar>().manaCost;
-                tmp = "Spawn " + _currentMana;
+                // tmp = "Spawn " + _currentMana;
                 // Debug.Log(tmp);
 
                 Vector2 canvasSize = canvasRectTransform.sizeDelta;
@@ -78,6 +80,8 @@ public class SpawnEnemy : MonoBehaviour
                     Vector3 spawnPosition3D = hit.point;
                     GameObject _newEnemy = Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
                     _newEnemy.transform.Rotate(0, 180, 0);
+                    _newEnemy.GetComponent<Avatar>().maxHealth = _newEnemy.GetComponent<Avatar>().maxHealth + (_level * 10);
+                    _newEnemy.GetComponent<Avatar>().damage += (_level * 2);
                 }
             }
         }

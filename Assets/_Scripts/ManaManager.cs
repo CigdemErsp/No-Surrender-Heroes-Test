@@ -7,7 +7,6 @@ public class ManaManager : MonoBehaviour
     private int maxMana = 10;
     private int _currentMana;
     private int manaRegenAmount = 1;  // Amount of mana regenerated
-    private float manaRegenRate = 4f;
 
     public delegate void ManaBarHandler(int currentMana, int maxMana); 
     public static event ManaBarHandler OnManaChange;

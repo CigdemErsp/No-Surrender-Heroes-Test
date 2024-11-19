@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 435984855433612166}
-  avatar: {fileID: 5476586549192962779}
+  unit: {fileID: 5476586549192962779}
 --- !u!1 &7896168960151546367
 GameObject:
   m_ObjectHideFlags: 0
@@ -2231,12 +2231,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ca140d2018e0143a7690b340181871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
   speed: 2
+  teamTag: 
   range: 1
   damage: 20
-  _animator: {fileID: 435513222104926304}
-  point: 0
+  point: 20
   manaCost: 2
+  _animator: {fileID: 435513222104926304}
+  isAttacking: 0
+  isDead: 0
+  gameEnded: 0
+  _currentTarget: {fileID: 0}
 --- !u!95 &435513222104926304
 Animator:
   serializedVersion: 5

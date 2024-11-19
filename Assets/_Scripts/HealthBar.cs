@@ -6,7 +6,7 @@ public class HealthBar : MonoBehaviour
 {
 
     public Slider slider;
-    [SerializeField] private Avatar avatar;
+    [SerializeField] private Unit unit;
     private Camera _camera;
 
     private void Start()
@@ -17,23 +17,25 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     public void InitializeSlider()
     {
-        slider.maxValue = avatar.getMaxHealth();
-        slider.value = avatar.getCurrentHealth();
+        slider.maxValue = unit.maxHealth;
+        slider.value = unit.currentHealth;
     }
 
     void OnEnable()
     {
         Avatar.OnDamageTaken += UpdateHealthBar; // Subscribe to the event
+        Turret.OnDamageTaken += UpdateHealthBar;
     }
 
     void OnDisable()
     {
         Avatar.OnDamageTaken -= UpdateHealthBar; // Unsubscribe to avoid memory leaks
+        Turret.OnDamageTaken -= UpdateHealthBar;
     }
 
     public void UpdateHealthBar()
     {
-        slider.DOValue(avatar.getCurrentHealth(), 0.5f);
+        slider.DOValue(unit.currentHealth, 0.5f);
     }
 
     void Update()

@@ -3,56 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Avatar : MonoBehaviour
-{
-    public delegate void SoldierDiedHandler();
-    public static event SoldierDiedHandler OnSoldierDied;
-
-    public delegate void Score(int points);
-    public static event Score ScoreUp;
-
-    public delegate void HealthBarHandler();
-    public static event HealthBarHandler OnDamageTaken;
-
-    [SerializeField] private float speed = 2f; // Speed of the soldier
-    private string teamTag; // Team tag
-    [SerializeField] private float range; // Range of weapon
-    public int damage = 10;
-
-    [SerializeField] private Animator _animator;
-
-    private int maxHealth = 100; // Max health of the soldier
-    private int currentHealth = 100;
-
-    private Avatar _currentTarget;
-
-    private bool isAttacking = false;
-    private bool isDead = false;
-    private bool gameEnded = false;
-
-    [SerializeField] private int point;
-
-    public int manaCost = 2;
-
-    public int getCurrentHealth()
-    {
-        return currentHealth;
-    }
-
-    public int getMaxHealth()
-    {
-        return maxHealth;
-    }
-
-    public void setMaxHealth(int health)
-    {
-        maxHealth = health;
-    }
-
+public class Avatar : Unit
+{  
     private void Start()
     {
+        maxHealth = 100;
         currentHealth = maxHealth;
+        speed = 2f;
         teamTag = transform.tag;
+        point = 20;
         _animator.SetBool("Idle", true);
     }
 
@@ -71,9 +30,9 @@ public class Avatar : MonoBehaviour
                 isAttacking = false;
                 return;
             }
-            else if (nearestEnemy.GetComponent<Avatar>() != _currentTarget)
+            else if (nearestEnemy.GetComponent<Unit>() != _currentTarget)
             {
-                _currentTarget = nearestEnemy.GetComponent<Avatar>();
+                _currentTarget = nearestEnemy.GetComponent<Unit>();
             }
             else
             {
@@ -107,85 +66,6 @@ public class Avatar : MonoBehaviour
                 }
             }
         }
-
-    }
-
-    GameObject FindNearestEnemy()
-    {
-        GameObject[] enemies = FindEnemies(); // Find all enemies
-        GameObject nearest = null;
-        float minDist = Mathf.Infinity;
-
-        foreach (GameObject enemy in enemies)
-        {
-            float dist = Vector3.Distance(transform.position, enemy.transform.position);
-            if (dist < minDist)
-            {
-                nearest = enemy;
-                minDist = dist;
-            }
-        }
-        return nearest;
-    }
-
-    GameObject[] FindEnemies()
-    {
-        Avatar[] allObjects = GameObject.FindObjectsOfType<Avatar>();
-        List<GameObject> nonTeamObjects = new List<GameObject>();
-
-        foreach (Avatar obj in allObjects)
-        {
-            if (obj.tag != teamTag) // Exclude objects with the specified tag
-            {
-                nonTeamObjects.Add(obj.gameObject);
-            }
-        }
-
-        return nonTeamObjects.ToArray();
-    }
-
-    void Shoot()
-    {
-        if (!_currentTarget.isDead) {
-            _currentTarget.currentHealth -= damage;
-            OnDamageTaken?.Invoke();
-            string tmp = _currentTarget.name + " " + _currentTarget.teamTag + " " + _currentTarget.currentHealth;
-            // Debug.Log(tmp);
-
-            if (_currentTarget.currentHealth <= 0)
-            {
-                _currentTarget._animator.SetTrigger("Death");
-                _animator.SetBool("Attacking", false);
-                _animator.SetBool("Idle", true);
-                isAttacking = false;
-                _currentTarget.isDead = true;
-
-                if (_currentTarget.tag == "Team 1")
-                {
-                    OnSoldierDied?.Invoke();
-                    ScoreUp?.Invoke(_currentTarget.point);
-                }
-
-            }
-        }
-    }
-
-    IEnumerator WaitForAnimationToFinish()
-    {
-        AnimatorStateInfo animationState = _animator.GetCurrentAnimatorStateInfo(0);
-
-        while(_animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f)
-        {
-            yield return null;
-            animationState = _animator.GetCurrentAnimatorStateInfo(0);
-        }
-
-
-    }
-
-    void OnDeath()
-    {
-        Destroy(gameObject);
     }
 
     void OnEnable()

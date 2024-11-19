@@ -84,7 +84,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                     newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
                     newCharacter.tag = "Team 2";
                     newCharacter.GetComponent<Avatar>().damage += level * 5;
-                    newCharacter.GetComponent<Avatar>().setMaxHealth(newCharacter.GetComponent<Avatar>().getMaxHealth() + (level * 10));
+                    newCharacter.GetComponent<Avatar>().maxHealth = newCharacter.GetComponent<Avatar>().maxHealth + (level * 10);
                 }
             }
             OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);

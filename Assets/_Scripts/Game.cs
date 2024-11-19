@@ -16,21 +16,36 @@ public class Game : MonoBehaviour
     private int score = 0;
     [SerializeField] private TMP_Text scoreText;
 
-    private bool heroUpgradable = false;
+    private int enemyScore = 0;
 
+    [SerializeField] private GameObject _gameCanvas;
     [SerializeField] private GameObject _victoryScene;
     [SerializeField] private GameObject _defeatScene;
 
     void OnEnable()
     {
-        Avatar.ScoreUp += UpScore; // Subscribe to the event
+        Unit.ScoreUp += UpScore; // Subscribe to the event
         DragDrop.OnHeroUpgraded += DecreaseScore;
+        Unit.OnSoldierDied += UpEnemyScore;
     }
 
     void OnDisable()
     {
-        Avatar.ScoreUp -= UpScore; // Unsubscribe to avoid memory leaks
+        Unit.ScoreUp -= UpScore; // Unsubscribe to avoid memory leaks
         DragDrop.OnHeroUpgraded -= DecreaseScore;
+        Unit.OnSoldierDied -= UpEnemyScore;
+    }
+
+    public void UpEnemyScore(int points)
+    {
+        enemyScore += points;
+        // Debug.Log(enemyScore);
+
+        if(enemyScore >= 100)
+        {
+            OnGameEnd?.Invoke();
+            Defeat();
+        }
     }
 
     public void UpScore(int point)
@@ -41,7 +56,7 @@ public class Game : MonoBehaviour
         UpdateScoreText(tmp); // Update the score text with the current info
         OnHeroUpgradable?.Invoke(score);
 
-        if(score >= 20) // victory
+        if(score >= 100) // victory
         {
             OnGameEnd?.Invoke();
             Victory();
@@ -67,8 +82,7 @@ public class Game : MonoBehaviour
     // Victory
     void Victory()
     {
-        GameObject _gameScreen = GameObject.FindGameObjectWithTag("GameCanvas");
-        _gameScreen.SetActive(false);
+        _gameCanvas.SetActive(false);
 
         // Set initial scale to 0 for animation effect
         _victoryScene.transform.localScale = Vector3.zero;
@@ -106,6 +120,49 @@ public class Game : MonoBehaviour
         _victoryScoreText.color = currentColor;  // Apply initial color with alpha 0
 
         _victoryScoreText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
+    }
+
+    // Defeat
+    void Defeat()
+    {
+        _gameCanvas.SetActive(false);
+
+        // Set initial scale to 0 for animation effect
+        _defeatScene.transform.localScale = Vector3.zero;
+        _defeatScene.SetActive(true);
+
+        // Smooth scale-in effect for victory scene
+        _defeatScene.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.InOutQuad).SetDelay(0.3f);
+
+        // Find the score text and update it
+        GameObject _defeatScore = GameObject.FindGameObjectWithTag("DefeatScore");
+        TMP_Text _defeatSceneText = _defeatScore.GetComponent<TMP_Text>();
+        _defeatSceneText.text = $"{score}";
+
+        float delay = 0f;
+        // Fade-in all images in the victory scene
+        Image[] allImages = _defeatScene.GetComponentsInChildren<Image>();
+
+        // Loop through each Image and fade in
+        foreach (Image image in allImages)
+        {
+            // Ensure image starts with alpha 0, in case it's not set up in the scene
+            Color imageColor = image.color;
+            imageColor.a = 0;
+            image.color = imageColor;
+
+            image.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Delay to appear after victory scene
+            delay += 0.3f;
+        }
+
+        DestroyAllGameObjects();
+
+        // Set initial alpha to 0 and fade in the score text (using color property for TMP_Text)
+        Color currentColor = _defeatSceneText.color;
+        currentColor.a = 0;  // Start with alpha 0
+        _defeatSceneText.color = currentColor;  // Apply initial color with alpha 0
+
+        _defeatSceneText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
     }
 
     // Function to destroy all game objects

@@ -29,14 +29,6 @@ public class MainMenu : MonoBehaviour
             {
                 // Load the scene after fade-out completes
                 SceneManager.LoadScene(1);
-
-                // Fade back in after the new scene is loaded
-                _loading.DOFade(0, 0)
-                    .SetEase(Ease.InOutQuad)
-                    .OnComplete(() =>
-                    {
-                        _loadingScreen.gameObject.SetActive(false); // Hide the panel after fade-in
-                    });
             });
     }
 }

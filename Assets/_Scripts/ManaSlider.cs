@@ -44,6 +44,7 @@ public class ManaSlider : MonoBehaviour
     public void GameEnd()
     {
         gameEnded = true;
+        sliderTween.Kill();
     }
 
     private void InitializeSlider()
@@ -73,35 +74,39 @@ public class ManaSlider : MonoBehaviour
                 ChangeManaLevel((int)slider.value);
             });
         }
-        if(gameEnded)
-            sliderTween.Kill();
     }
 
     private void UpdateManaSlider(int currentMana, int maxMana)
     {
-        slider.value = currentMana; // Update the slider's value to reflect current mana
-        ChangeManaLevel(currentMana);
+        if (!gameEnded)
+        {
+            slider.value = currentMana; // Update the slider's value to reflect current mana
+            ChangeManaLevel(currentMana);
 
-        // Stop the animation if current mana reaches max
-        if (currentMana >= maxMana)
-        {
-            sliderTween.Kill(); // Stop the animation
-        }
-        else
-        {
-            StartSliderFillAnimation(currentMana); // Restart animation if it was interrupted
+            // Stop the animation if current mana reaches max
+            if (currentMana >= maxMana)
+            {
+                sliderTween.Pause(); // Stop the animation
+            }
+            else
+            {
+                StartSliderFillAnimation(currentMana); // Restart animation if it was interrupted
+            }
         }
     }
 
     private void ChangeManaLevel(int currentMana)
     {
-        if(currentMana == 0)
+        if (!gameEnded)
         {
-            _level.sprite = _levelZero;
-        }
-        else
-        {
-            _level.sprite = sprites[currentMana - 1];
+            if (currentMana == 0)
+            {
+                _level.sprite = _levelZero;
+            }
+            else
+            {
+                _level.sprite = sprites[currentMana - 1];
+            }
         }
     } 
 }
