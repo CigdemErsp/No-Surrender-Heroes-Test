@@ -13,6 +13,9 @@ public class Unit : MonoBehaviour
     public delegate void HealthBarHandler();
     public static event HealthBarHandler OnDamageTaken;
 
+    public delegate void TurretDestroyed(string teamTag);
+    public static event TurretDestroyed OnTurretDestroy;
+
     public int maxHealth; // Max health of the soldier
     public int currentHealth;
     public float speed; // Speed of the soldier
@@ -92,7 +95,11 @@ public class Unit : MonoBehaviour
                 isAttacking = false;
                 _currentTarget.isDead = true;
 
-                if (_currentTarget.tag == "Team 1")
+                if(_currentTarget.GetComponent<Turret>() != null)
+                {
+                    Unit.OnTurretDestroy(_currentTarget.teamTag);
+                }
+                else if (_currentTarget.tag == "Team 1")
                 {
                     UpdateScore(_currentTarget.point);
                 }
@@ -120,4 +127,5 @@ public class Unit : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 }

@@ -15,6 +15,7 @@ public class Game : MonoBehaviour
 
     private int score = 0;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text enemyScoreText;
 
     private int enemyScore = 0;
 
@@ -27,6 +28,7 @@ public class Game : MonoBehaviour
         Unit.ScoreUp += UpScore; // Subscribe to the event
         DragDrop.OnHeroUpgraded += DecreaseScore;
         Unit.OnSoldierDied += UpEnemyScore;
+        Unit.OnTurretDestroy += EndGame;
     }
 
     void OnDisable()
@@ -34,6 +36,16 @@ public class Game : MonoBehaviour
         Unit.ScoreUp -= UpScore; // Unsubscribe to avoid memory leaks
         DragDrop.OnHeroUpgraded -= DecreaseScore;
         Unit.OnSoldierDied -= UpEnemyScore;
+        Unit.OnTurretDestroy -= EndGame;
+    }
+
+    void EndGame(string teamTag)
+    {
+        OnGameEnd?.Invoke();
+        if (teamTag == "Team 2")
+            Defeat();
+        else
+            Victory();
     }
 
     public void UpEnemyScore(int points)
@@ -41,11 +53,8 @@ public class Game : MonoBehaviour
         enemyScore += points;
         // Debug.Log(enemyScore);
 
-        if(enemyScore >= 100)
-        {
-            OnGameEnd?.Invoke();
-            Defeat();
-        }
+        string tmp = $"Score: {enemyScore}";
+        UpdateEnemyScoreText(tmp); // Update the score text with the current info
     }
 
     public void UpScore(int point)
@@ -55,12 +64,6 @@ public class Game : MonoBehaviour
         string tmp = $"Score: {score}";
         UpdateScoreText(tmp); // Update the score text with the current info
         OnHeroUpgradable?.Invoke(score);
-
-        if(score >= 100) // victory
-        {
-            OnGameEnd?.Invoke();
-            Victory();
-        }
     }
 
     void UpdateScoreText(string text = "")
@@ -68,6 +71,14 @@ public class Game : MonoBehaviour
         if (scoreText != null)
         {
             scoreText.text = string.IsNullOrEmpty(text) ? $"Score: {score}" : text;
+        }
+    }
+
+    void UpdateEnemyScoreText(string text = "")
+    {
+        if (enemyScoreText != null)
+        {
+            enemyScoreText.text = string.IsNullOrEmpty(text) ? $"Enemy Score: {enemyScore}" : text;
         }
     }
 
@@ -96,6 +107,11 @@ public class Game : MonoBehaviour
         TMP_Text _victoryScoreText = _victoryScore.GetComponent<TMP_Text>();
         _victoryScoreText.text = $"{score}";
 
+        // Find the score text and update it
+        GameObject _enemyScore = GameObject.FindGameObjectWithTag("Enemy Score");
+        TMP_Text _enemyScoreText = _enemyScore.GetComponent<TMP_Text>();
+        _enemyScoreText.text = $"{enemyScore}";
+
         float delay = 0f;
         // Fade-in all images in the victory scene
         Image[] allImages = _victoryScene.GetComponentsInChildren<Image>();
@@ -120,6 +136,13 @@ public class Game : MonoBehaviour
         _victoryScoreText.color = currentColor;  // Apply initial color with alpha 0
 
         _victoryScoreText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
+
+        // Set initial alpha to 0 and fade in the score text (using color property for TMP_Text)
+        currentColor = _enemyScoreText.color;
+        currentColor.a = 0;  // Start with alpha 0
+        _enemyScoreText.color = currentColor;  // Apply initial color with alpha 0
+
+        _enemyScoreText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
     }
 
     // Defeat
@@ -138,6 +161,11 @@ public class Game : MonoBehaviour
         GameObject _defeatScore = GameObject.FindGameObjectWithTag("DefeatScore");
         TMP_Text _defeatSceneText = _defeatScore.GetComponent<TMP_Text>();
         _defeatSceneText.text = $"{score}";
+
+        // Find the score text and update it
+        GameObject _enemyScore = GameObject.FindGameObjectWithTag("Enemy Score");
+        TMP_Text _enemyScoreText = _enemyScore.GetComponent<TMP_Text>();
+        _enemyScoreText.text = $"{enemyScore}";
 
         float delay = 0f;
         // Fade-in all images in the victory scene
@@ -163,6 +191,13 @@ public class Game : MonoBehaviour
         _defeatSceneText.color = currentColor;  // Apply initial color with alpha 0
 
         _defeatSceneText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
+
+        // Set initial alpha to 0 and fade in the score text (using color property for TMP_Text)
+        currentColor = _enemyScoreText.color;
+        currentColor.a = 0;  // Start with alpha 0
+        _enemyScoreText.color = currentColor;  // Apply initial color with alpha 0
+
+        _enemyScoreText.DOFade(1, 0.5f).SetEase(Ease.InOutQuad).SetDelay(delay); // Fade-in after delay
     }
 
     // Function to destroy all game objects

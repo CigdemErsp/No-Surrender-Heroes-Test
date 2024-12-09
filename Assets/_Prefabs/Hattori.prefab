@@ -390,27 +390,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1738226
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.05000019
+      value: -4.8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.090965
+      value: -14.18
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1394,7 +1394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_TagString
-      value: Team 1
+      value: Team 2
       objectReference: {fileID: 0}
     - target: {fileID: 952227520138206366, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2213,6 +2213,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 435513222104926304}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3867203581397835020}
   m_SourcePrefab: {fileID: 100100000, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}
 --- !u!1 &7183958001949545731 stripped
 GameObject:
@@ -2235,7 +2238,7 @@ MonoBehaviour:
   currentHealth: 0
   speed: 2
   teamTag: 
-  range: 1
+  range: 6
   damage: 20
   point: 20
   manaCost: 2
@@ -2265,6 +2268,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &3867203581397835020
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7183958001949545731}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 0
 --- !u!4 &7564177177872650169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 69c7fa0287a23de4ba287c51054b9b5b, type: 3}

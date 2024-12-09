@@ -12,6 +12,7 @@ TagManager:
   - VictoryScreen
   - VictoryScore
   - DefeatScore
+  - Enemy Score
   layers:
   - Default
   - TransparentFX

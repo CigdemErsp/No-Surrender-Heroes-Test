@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Avatar : Unit
-{  
+{
+    private NavMeshAgent agent;
     private void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
+        agent.speed = 5f;
+        agent.angularSpeed = 500f;
+        agent.stoppingDistance = range;
+        agent.updatePosition = true;
+        agent.updateRotation = true;
+
         maxHealth = 100;
         currentHealth = maxHealth;
-        speed = 2f;
         teamTag = transform.tag;
         point = 20;
         _animator.SetBool("Idle", true);
@@ -28,6 +36,7 @@ public class Avatar : Unit
                 _animator.SetBool("Idle", true);
                 _animator.SetBool("Moving", false);
                 isAttacking = false;
+                agent.isStopped = true;
                 return;
             }
             else if (nearestEnemy.GetComponent<Unit>() != _currentTarget)
@@ -47,21 +56,22 @@ public class Avatar : Unit
 
                 _animator.SetBool("Idle", false);
                 float dist = Vector3.Distance(transform.position, nearestEnemy.transform.position);
-
+                
                 if (dist > range)
                 {
-                    isAttacking = false;
-                    // Move towards the enemy
+                    Debug.Log(dist);
+                    agent.isStopped = false;
+                    agent.SetDestination(nearestEnemy.transform.position);
                     _animator.SetBool("Moving", true);
                     _animator.SetBool("Attacking", false);
-                    Vector3 direction = (nearestEnemy.transform.position - transform.position).normalized;
-                    transform.position += direction * speed * Time.deltaTime;
+                    isAttacking = false;
                 }
                 else if (!isAttacking)
                 {
                     isAttacking = true;
                     _animator.SetBool("Moving", false);
                     _animator.SetBool("Attacking", true);
+                    agent.isStopped = true;
                     StartCoroutine(WaitForAnimationToFinish());
                 }
             }

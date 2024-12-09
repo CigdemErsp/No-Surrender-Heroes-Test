@@ -17,7 +17,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private List<GameObject> _gameObject;
     [SerializeField] private RectTransform canvasRectTransform; // The canvas where you want to spawn enemies
 
-    private float spawnTime = 2f;
+    private float spawnTime = 4f;
 
     void Start()
     {
@@ -63,7 +63,7 @@ public class SpawnEnemy : MonoBehaviour
                 Vector2 canvasSize = canvasRectTransform.sizeDelta;
 
                 float randomX = Random.Range(0, canvasSize.x);
-                float randomY = Random.Range((canvasSize.y / 2) + 100, canvasSize.y);
+                float randomY = Random.Range((canvasSize.y / 2), canvasSize.y);
 
                 // Convert the canvas position into world space
                 Vector2 spawnPosition = new Vector2(randomX, randomY);
@@ -80,7 +80,7 @@ public class SpawnEnemy : MonoBehaviour
                     Vector3 spawnPosition3D = hit.point;
                     GameObject _newEnemy = Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
                     _newEnemy.transform.Rotate(0, 180, 0);
-                    _newEnemy.GetComponent<Avatar>().maxHealth = _newEnemy.GetComponent<Avatar>().maxHealth + (_level * 10);
+                    _newEnemy.GetComponent<Avatar>().maxHealth = _newEnemy.GetComponent<Avatar>().maxHealth + (_level * 2);
                     _newEnemy.GetComponent<Avatar>().damage += (_level * 2);
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -28,6 +29,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private bool canSummon = true;
 
     private Vector2 canvasSize;
+    private Vector2 min;
+    private Vector2 max;
 
     private Game _game;
 
@@ -38,6 +41,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasSize = canvasRectTransform.sizeDelta;
         _game = FindObjectOfType<Game>();
         _levelUpButton.onClick.AddListener(TaskOnClick);
+        min = canvasRectTransform.rect.min;
+        max = canvasRectTransform.rect.max;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -56,6 +61,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        NavMeshHit navMeshHit;
         if (canSummon)
         {
             // Debug.Log("OnEndDrag");
@@ -63,8 +69,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
             Vector2 canvasPos = eventData.position;
 
-            if (canvasPos.y > ((canvasSize.y / 2) + 100))
-                canvasPos.y = (canvasSize.y / 2) + 100;
+            canvasPos.x = Mathf.Clamp(canvasPos.x, min.x, max.x);
+            canvasPos.y = Mathf.Clamp(canvasPos.y, min.y, max.y);
 
             Ray ray = Camera.main.ScreenPointToRay(canvasPos);
             RaycastHit hit;
@@ -78,18 +84,23 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 {
                     // Get the hit point
                     Vector3 dropPositionWorld = hit.point;
+                    if (NavMesh.SamplePosition(dropPositionWorld, out navMeshHit, 5.0f, NavMesh.AllAreas))
+                    {
+                        if (navMeshHit.hit) // Confirm the position is valid on the NavMesh
+                        {
+                            // Place your item at this position
+                            GameObject newCharacter = Instantiate(_gameObject, dropPositionWorld, Quaternion.identity);
+                            newCharacter.transform.localScale = new Vector3(2f, 2f, 2f);
+                            newCharacter.tag = "Team 2";
+                            newCharacter.GetComponent<Avatar>().damage += level * 5;
+                            newCharacter.GetComponent<Avatar>().maxHealth = newCharacter.GetComponent<Avatar>().maxHealth + (level * 10);
 
-                    // Place your item at this position
-                    GameObject newCharacter = Instantiate(_gameObject, dropPositionWorld, Quaternion.identity);
-                    newCharacter.transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
-                    newCharacter.tag = "Team 2";
-                    newCharacter.GetComponent<Avatar>().damage += level * 5;
-                    newCharacter.GetComponent<Avatar>().maxHealth = newCharacter.GetComponent<Avatar>().maxHealth + (level * 10);
-                }
-            }
-            OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);
+                            OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);
+                        }
+                    }
+                }               
+            }           
         }
-
     }
 
     public void OnPointerDown(PointerEventData eventData)

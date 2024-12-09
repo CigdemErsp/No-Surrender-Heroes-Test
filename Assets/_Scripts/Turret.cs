@@ -12,8 +12,8 @@ public class Turret : Unit
         maxHealth = 1000;
         currentHealth = maxHealth;
         speed = 0;
-        range = 4f;
-        damage = 30;
+        range = 10f;
+        damage = 20;
         teamTag = transform.tag;
         point = 40;
         _animator.SetBool("Idle", true);
