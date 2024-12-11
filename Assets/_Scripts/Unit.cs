@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Unit : MonoBehaviour
 {
@@ -32,6 +33,10 @@ public class Unit : MonoBehaviour
     public bool gameEnded = false;
 
     public Unit _currentTarget;
+
+    [SerializeField] private Transform bulletSpawnPoint;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private float bulletSpeed = 10;
 
     public void SoldierDied(int points)
     {
@@ -110,6 +115,23 @@ public class Unit : MonoBehaviour
                 _currentTarget = null;
             }
         }
+    }
+
+    void ShootBullet()
+    {
+        var newBullet = Instantiate(bullet, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
+        Vector3 direction = _currentTarget.transform.position - newBullet.transform.position;
+        newBullet.transform.rotation = Quaternion.LookRotation(direction);
+
+        float animationDuration = _animator.GetCurrentAnimatorStateInfo(0).length;
+
+        newBullet.transform.DOMove(_currentTarget.transform.position, animationDuration)
+        .SetEase(Ease.Linear) // Ensure linear movement
+        .OnComplete(() =>
+        {
+            // Destroy the bullet
+            Destroy(newBullet);
+        });
     }
 
     public IEnumerator WaitForAnimationToFinish()

@@ -13,9 +13,8 @@ public class SpawnEnemy : MonoBehaviour
 
     private Vector2 originalPosition;
 
-    [SerializeField] private Canvas _canvas;
     [SerializeField] private List<GameObject> _gameObject;
-    [SerializeField] private RectTransform canvasRectTransform; // The canvas where you want to spawn enemies
+    [SerializeField] private GameObject gameArena;
 
     private float spawnTime = 4f;
 
@@ -60,29 +59,25 @@ public class SpawnEnemy : MonoBehaviour
                 // tmp = "Spawn " + _currentMana;
                 // Debug.Log(tmp);
 
-                Vector2 canvasSize = canvasRectTransform.sizeDelta;
+                Renderer cubeRenderer = gameArena.GetComponent<Renderer>();
+                Bounds cubeBounds = cubeRenderer.bounds;
 
-                float randomX = Random.Range(0, canvasSize.x);
-                float randomY = Random.Range((canvasSize.y / 2), canvasSize.y);
+                // Get min and max world positions of the side
+                Vector3 min = cubeBounds.min; // Bottom-left corner
+                Vector3 max = cubeBounds.max; // Top-right corner
+
+                float randomX = Random.Range(min.x, max.x);
+                float randomY = Random.Range(min.y, max.y);
+                float randomZ = Random.Range((max.z + min.z) / 2, max.z);
 
                 // Convert the canvas position into world space
-                Vector2 spawnPosition = new Vector2(randomX, randomY);
+                Vector3 spawnPosition = new Vector3(randomX, randomY, randomZ);
 
-                Ray ray = Camera.main.ScreenPointToRay(new Vector3(spawnPosition.x, spawnPosition.y, 0));
-
-                // Variable to store hit information from the raycast
-                RaycastHit hit;
-
-                // Perform the raycast to detect any 3D object in the world
-                if (Physics.Raycast(ray, out hit))
-                {
-                    // If the ray hits a 3D object, instantiate the game object at the hit point
-                    Vector3 spawnPosition3D = hit.point;
-                    GameObject _newEnemy = Instantiate(_enemy, spawnPosition3D, Quaternion.identity);
-                    _newEnemy.transform.Rotate(0, 180, 0);
-                    _newEnemy.GetComponent<Avatar>().maxHealth = _newEnemy.GetComponent<Avatar>().maxHealth + (_level * 2);
-                    _newEnemy.GetComponent<Avatar>().damage += (_level * 2);
-                }
+                // If the ray hits a 3D object, instantiate the game object at the hit point
+                GameObject _newEnemy = Instantiate(_enemy, spawnPosition, Quaternion.identity);
+                _newEnemy.transform.Rotate(0, 180, 0);
+                _newEnemy.GetComponent<Avatar>().maxHealth = _newEnemy.GetComponent<Avatar>().maxHealth + (_level * 2);
+                _newEnemy.GetComponent<Avatar>().damage += (_level * 2);
             }
         }
     }
