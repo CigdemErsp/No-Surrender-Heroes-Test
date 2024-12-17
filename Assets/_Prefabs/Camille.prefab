@@ -1157,8 +1157,8 @@ MonoBehaviour:
   currentHealth: 0
   speed: 2
   teamTag: 
-  range: 13
-  damage: 5
+  range: 15
+  damage: 10
   point: 20
   manaCost: 2
   _animator: {fileID: 8523965482143850253}

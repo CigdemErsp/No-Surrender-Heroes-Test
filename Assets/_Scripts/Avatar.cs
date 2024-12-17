@@ -59,7 +59,7 @@ public class Avatar : Unit
                 
                 if (dist > range)
                 {
-                    Debug.Log(dist);
+                    // Debug.Log(dist);
                     agent.isStopped = false;
                     agent.SetDestination(nearestEnemy.transform.position);
                     _animator.SetBool("Moving", true);

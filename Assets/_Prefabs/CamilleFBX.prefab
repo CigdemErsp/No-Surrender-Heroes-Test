@@ -1153,7 +1153,7 @@ MonoBehaviour:
   speed: 2
   teamTag: 
   range: 15
-  damage: 7
+  damage: 10
   point: 20
   manaCost: 2
   _animator: {fileID: 4071303691503386425}

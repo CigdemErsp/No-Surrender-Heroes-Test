@@ -16,6 +16,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public delegate void HeroUpgraded(int score);
     public static event HeroUpgraded OnHeroUpgraded;
 
+    public delegate void NewUnitSummonHandler(GameObject unit);
+    public static event NewUnitSummonHandler OnNewUnitSummoned;
+
     private int level;
     private int neededScoreForLevelUp;
 
@@ -96,6 +99,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                             newCharacter.GetComponent<Avatar>().maxHealth = newCharacter.GetComponent<Avatar>().maxHealth + (level * 10);
 
                             OnSummon?.Invoke(_gameObject.GetComponent<Avatar>().manaCost);
+
+                            OnNewUnitSummoned?.Invoke(_gameObject);
                         }
                     }
                 }               
